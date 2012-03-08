@@ -11,7 +11,13 @@ Currently it only supports html output.
 Running
 ------------
 
-    ruby cassagraphy.rb "/path/to/yaml"
+To generate a yaml file from an existing Cassandra instance:
+
+    ruby cassagraphy.rb generate "localhost:9160" "schema.yaml"
+
+To generate the graphical representation of the yaml file:
+
+    ruby cassagraphy.rb render "schema.yaml" "schema.html"
 
 Dependencies
 ------------
