@@ -1,0 +1,146 @@
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}
+
+fieldset {
+  margin: 0.25em;
+  border-style: solid;
+  padding: 0.25em;
+  margin: 0.25em;
+  font-family: monospace;
+}
+fieldset, legend {
+  border-width: 1px;
+  border-color: #000;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+legend {
+  font-size: 90%;
+  margin: auto;
+  padding: 0.1em;
+  margin-left: 1em;
+  border-style: solid;
+}
+
+legend span {
+  font-weight: bold;
+}
+
+/* Cluster */
+fieldset.cluster            
+{
+ background-color: #F5F5F5;
+}
+legend.cluster            
+{
+  background-color: white;
+}
+/* Keyspace */
+fieldset.keyspace           
+{
+ background-color: #A6F5D5;
+}
+legend.keyspace
+{
+  background-color: white;
+}
+
+/* Column Family */
+fieldset.columnfamily, fieldset.supercolumnfamily {
+  float: none;
+}
+
+fieldset.columnfamily
+{
+ background-color: #ADA6F5;
+}
+legend.columnfamily
+{
+  background-color: white;
+}
+/* Super Column Family */
+fieldset.supercolumnfamily
+{
+ background-color: #ADA6F5;
+}
+legend.supercolumnfamily
+{
+  background-color: white;
+}
+
+/* Row */
+table.row                
+{
+ border-collapse: separate;
+ padding: 0.25em;
+ background-color: #F3C6FA;
+ border-style: solid;
+ border-width: 1px;
+ border-color: #000;
+ border-radius: 5px;
+ -moz-border-radius: 5px;
+}
+th.rowkey {
+  border-style: solid;
+  border-width: 0px;
+  border-color: #000;
+  border-right-width: 1px;
+  padding-right: 0.25em;
+  font-weight: bold;
+}
+td.columns {
+  padding: 0.25em;
+}
+
+.right > div.column, .right > div.supercolumn {
+  border-style: dashed;
+}
+
+div.supercolumn.optional, div.column.optional {
+  border-style: dashed;
+}
+
+/* Columns and Super Columns */
+div.supercolumn, div.column {
+  text-align: center;
+  float: left;
+  border-width: 1px;
+  border-radius: 2px;
+  -moz-border-radius: 5px;
+  border-color: #000;
+  border-style: solid;
+  background-color: #D8ECED;
+  padding: 0.1em;
+}
+div.supercolumn-key, div.column-name {
+  border-width: 0px;
+  border-bottom-width: 1px;
+  border-color: black;
+  border-style: solid;
+  margin: 0.1em;
+}
+
+div.supercolumn {
+  background-color: #A2C7D7;
+}
+div.supercolumn-key {
+  font-weight: bold;
+}
+
+
+/** Repeated **/
+
+div.repeated {
+
+}
+div.left, dif.right, div.middle {
+  float: left;
+}
+
+

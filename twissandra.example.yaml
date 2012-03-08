@@ -1,0 +1,84 @@
+---
+# There can be one or more clusters at the root level"
+Cluster:
+# Each Keyspace is an attribute of the cluster
+  Twissandra:
+# Each Column Family is an attribute of the keyspace
+    User:
+# The 'key' property is a friendly name for the row key
+      key: "username"
+# The key-type property is the serialization type
+      key-type: String
+# The columns attribute defines the serialization properties of the columns
+# As well as defining the structure of the columns
+      columns:
+        name-type: String
+        value-type: String
+        column:
+# This column is the only entry, but it is repeated for every property key ad infinitum
+        - { name: "Property Key", value: "Property Value", repeat: true }
+    Friends:
+      key: "username"
+      key-type: String
+      columns:
+        name-type: String
+        value-type: Long
+        column:
+        - { name: "Friend Key", value: "Date Added", repeat: true }
+    Followers:
+      key: "username"
+      key-type: String
+      columns:
+        name-type: String
+        value-type: Long
+        column:
+        - { name: "Follower Key", value: "Date Added", repeat: true }
+    Tweet:
+      key: "TimeUUID"
+      key-type: UUID
+      columns:
+        name-type: String
+        value-type: String
+        column:
+# These columns are logically defined using the static 'Name' as their name value
+        - name: username
+        - name: body
+    Timeline:
+      key: "username"
+      key-type: String
+      columns:
+        name-type: Long
+        value-type: UUID
+        column:
+        - { name: "Timestamp", value: "Tweet ID", repeat: true }
+    Userline:
+# If the structures between two column families are identical, 
+# you can extend them like below to save typing
+      extends: [ "Timeline" ]
+# This is another cluster
+TestCluster:
+# This cluster has multiple keyspaces
+  TestKeyspace:
+    CF1:
+# Leave out the 'key' attribute if you want just the Key-Type to appear in the name
+      key-type: String
+      columns:
+        name-type: String
+        value-type: String
+        column:
+        - { name: colkey, value: colval, repeat: true }
+  TestKeyspace2:
+    CF1:
+      key-type: Long
+      columns:
+        name-type: UUID
+        value-type: Bytes
+        column:
+        - { name: colkey, value: colval, repeat: true }
+    CF2:
+      key-type: String
+      columns:
+        name-type: UUID
+        value-type: String
+        column:
+        - { name: colkey, value: colval, repeat: true }
