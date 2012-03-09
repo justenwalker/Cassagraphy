@@ -243,8 +243,8 @@ module Model
       @cluster = cluster
       @name = name
       @cfs  = {}
-      columnfamilies.each_pair do |name,cfDef|
-        @cfs[name] = ColumnFamily.new(self,name,cfDef)
+      columnfamilies.each_pair do |cfname,cfDef|
+        @cfs[cfname] = ColumnFamily.new(self,cfname,cfDef)
       end
     end
     def columnfamilies
@@ -267,8 +267,8 @@ module Model
       @model = model
       @name = name
       @keyspaces = {}
-      keyspaces.each_pair do |name,columnfamilies|
-        addKeyspace( name, columnfamilies )
+      keyspaces.each_pair do |ksname,columnfamilies|
+        addKeyspace( ksname, columnfamilies )
       end
     end
     def addKeyspace(name, columnfamilies)
