@@ -108,6 +108,7 @@ module Render
       end
       params['body'] = result
       params['style'] = File.read('templates/style.css')
+      params['script'] = File.read('templates/script.js')
       File.open(@filename,'w') { |f| f.write(@templates['model'].render(params)) }
     end
   end
