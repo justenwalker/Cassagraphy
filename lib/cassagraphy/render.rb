@@ -36,6 +36,12 @@ module Render
           params = {}
           params['name'] = c.name
           params['value'] = c.value
+	  if c.hasTtl?
+	    params['ttl'] = c.ttl
+	    params['ttlClass'] = 'ttl'
+	  else
+	    params['ttlClass'] = 'no-ttl'
+	  end
           if c.optional?
             params['optional'] = "optional"
           else

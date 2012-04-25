@@ -82,3 +82,10 @@ TestCluster:
         value-type: String
         column:
         - { name: colkey, value: colval, repeat: true }
+    TtlExample:
+      key-type: String
+      columns:
+        name-type: UUID
+        value-type: String
+        column:
+        - { name: colkey, value: colval, ttl: 1d }

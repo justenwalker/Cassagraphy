@@ -66,6 +66,7 @@ module Model
       @value     = Model::getDefault(column,'value'    , @valuetype)
       @repeat    = Model::getDefault(column,'repeat'   , false)
       @const     = Model::getDefault(column,'const'    , true)
+      @ttl       = Model::getDefault(column,'ttl'      , nil)
       @optional  = Model::getDefault(column,'optional' , false)
     end
     def name
@@ -92,6 +93,12 @@ module Model
     end
     def optional?
       @optional
+    end
+    def hasTtl?
+    	@ttl != nil
+    end
+    def ttl
+    	@ttl
     end
   end
   class ColumnDef
