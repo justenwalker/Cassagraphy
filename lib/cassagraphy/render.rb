@@ -90,9 +90,9 @@ module Render
       params = {}
       params['name'] = keyspace.name
       params['schema'] = ""
-      cfs = keyspace.columnfamilies
-      cfs.each_pair do |name,cf|
-        params['schema'] += renderColumnFamily(cf)
+      cfs = keyspace.columnfamilies.sort_by { |k,v| k }
+      cfs.each do |n|
+        params['schema'] += renderColumnFamily(keyspace.columnfamilies[n[0]])
       end
       return @templates['keyspace'].render(params)
     end
