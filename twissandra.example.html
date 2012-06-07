@@ -167,7 +167,7 @@ td.columns {
 	padding: 0.25em;
 }
 
-.right>div.column,.right>div.supercolumn {
+.right div.column,.right div.supercolumn {
 	border-style: dashed;
 }
 
@@ -178,7 +178,6 @@ div.supercolumn.optional,div.column.optional {
 /* Columns and Super Columns */
 div.supercolumn,div.column {
 	text-align: center;
-	float: left;
 	border-width: 1px;
 	border-radius: 2px;
 	-moz-border-radius: 5px;
@@ -196,6 +195,11 @@ div.supercolumn-key,div.column-name {
 	margin: 0.1em;
 }
 
+div.column-outer {
+	margin: 0.1em;
+}
+
+
 div.supercolumn {
 	background-color: #A2C7D7;
 }
@@ -209,7 +213,7 @@ div.repeated {
 	
 }
 
-div.left,dif.right,div.middle {
+div.left,div.right,div.middle {
 	float: left;
 }
 
@@ -248,10 +252,9 @@ div.ttl {
 	float: right;
 	position: relative;
 	opacity: 0.5;
-	top: -8px;
-	left: -24px;
-	margin-right: -24px;
-	margin-bottom: -8px;
+	top: -48px;
+	margin-right: -16px;
+	margin-bottom: -48px;
 	padding-top: 10px;
 	text-align: center;
 	width: 32px;
@@ -326,21 +329,36 @@ div.no-ttl {
 	<legend class="keyspace"><button class="hide minus"></button>Keyspace<span class="ksname">&lt;Twissandra&gt;</span></legend>
 	<div class="keyspace content">
 		<fieldset class="columnfamily">
-  <legend class="columnfamily"><button class="hide minus"></button>ColumnFamily<span class="cfname">&lt;Tweet&gt;</span></legend>
+  <legend class="columnfamily"><button class="hide minus"></button>ColumnFamily<span class="cfname">&lt;Followers&gt;</span></legend>
   	<div class="columnfamily content">
 		<table class="row">
-			<tr id="Tweet">
-				<th class="rowkey">TimeUUID:UUID</th>
-				<td class="columns"><div class="column ">
-	<div class="column-name">'username'</div>
-	<div class="column-value">String</div>
+			<tr id="Followers">
+				<th class="rowkey">username:String</th>
+				<td class="columns"><table class="repeated">
+  <tr>
+    <td class="left"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">Follower Key:String</div>
+			<div class="column-value">Date Added:Long</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
-<div class="column ">
-	<div class="column-name">'body'</div>
-	<div class="column-value">String</div>
+</td>
+    <td class="middle">...</td>
+    <td class="right"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">Follower Key:String</div>
+			<div class="column-value">Date Added:Long</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
+</td>
+  </tr>
+</table>
 </td>
 			</tr>
 		</table>
@@ -356,18 +374,26 @@ div.no-ttl {
 				<th class="rowkey">username:String</th>
 				<td class="columns"><table class="repeated">
   <tr>
-    <td class="left"><div class="column ">
-	<div class="column-name">Friend Key:String</div>
-	<div class="column-value">Date Added:Long</div>
+    <td class="left"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">Friend Key:String</div>
+			<div class="column-value">Date Added:Long</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
     <td class="middle">...</td>
-    <td class="right"><div class="column ">
-	<div class="column-name">Friend Key:String</div>
-	<div class="column-value">Date Added:Long</div>
+    <td class="right"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">Friend Key:String</div>
+			<div class="column-value">Date Added:Long</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
   </tr>
 </table>
@@ -386,18 +412,26 @@ div.no-ttl {
 				<th class="rowkey">username:String</th>
 				<td class="columns"><table class="repeated">
   <tr>
-    <td class="left"><div class="column ">
-	<div class="column-name">Timestamp:Long</div>
-	<div class="column-value">Tweet ID:UUID</div>
+    <td class="left"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">Timestamp:Long</div>
+			<div class="column-value">Tweet ID:UUID</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
     <td class="middle">...</td>
-    <td class="right"><div class="column ">
-	<div class="column-name">Timestamp:Long</div>
-	<div class="column-value">Tweet ID:UUID</div>
+    <td class="right"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">Timestamp:Long</div>
+			<div class="column-value">Tweet ID:UUID</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
   </tr>
 </table>
@@ -409,28 +443,29 @@ div.no-ttl {
 
 
 <fieldset class="columnfamily">
-  <legend class="columnfamily"><button class="hide minus"></button>ColumnFamily<span class="cfname">&lt;Followers&gt;</span></legend>
+  <legend class="columnfamily"><button class="hide minus"></button>ColumnFamily<span class="cfname">&lt;Tweet&gt;</span></legend>
   	<div class="columnfamily content">
 		<table class="row">
-			<tr id="Followers">
-				<th class="rowkey">username:String</th>
-				<td class="columns"><table class="repeated">
-  <tr>
-    <td class="left"><div class="column ">
-	<div class="column-name">Follower Key:String</div>
-	<div class="column-value">Date Added:Long</div>
+			<tr id="Tweet">
+				<th class="rowkey">TimeUUID:UUID</th>
+				<td class="columns"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">'username'</div>
+			<div class="column-value">String</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
-</td>
-    <td class="middle">...</td>
-    <td class="right"><div class="column ">
-	<div class="column-name">Follower Key:String</div>
-	<div class="column-value">Date Added:Long</div>
+<div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">'body'</div>
+			<div class="column-value">String</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
-</td>
-  </tr>
-</table>
 </td>
 			</tr>
 		</table>
@@ -446,18 +481,26 @@ div.no-ttl {
 				<th class="rowkey">username:String</th>
 				<td class="columns"><table class="repeated">
   <tr>
-    <td class="left"><div class="column ">
-	<div class="column-name">Property Key:String</div>
-	<div class="column-value">Property Value:String</div>
+    <td class="left"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">Property Key:String</div>
+			<div class="column-value">Property Value:String</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
     <td class="middle">...</td>
-    <td class="right"><div class="column ">
-	<div class="column-name">Property Key:String</div>
-	<div class="column-value">Property Value:String</div>
+    <td class="right"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">Property Key:String</div>
+			<div class="column-value">Property Value:String</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
   </tr>
 </table>
@@ -476,18 +519,26 @@ div.no-ttl {
 				<th class="rowkey">username:String:String</th>
 				<td class="columns"><table class="repeated">
   <tr>
-    <td class="left"><div class="column ">
-	<div class="column-name">Timestamp:Long</div>
-	<div class="column-value">Tweet ID:UUID</div>
+    <td class="left"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">Timestamp:Long</div>
+			<div class="column-value">Tweet ID:UUID</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
     <td class="middle">...</td>
-    <td class="right"><div class="column ">
-	<div class="column-name">Timestamp:Long</div>
-	<div class="column-value">Tweet ID:UUID</div>
+    <td class="right"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">Timestamp:Long</div>
+			<div class="column-value">Tweet ID:UUID</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
   </tr>
 </table>
@@ -518,18 +569,26 @@ div.no-ttl {
 				<th class="rowkey">String</th>
 				<td class="columns"><table class="repeated">
   <tr>
-    <td class="left"><div class="column ">
-	<div class="column-name">colkey:String</div>
-	<div class="column-value">colval:String</div>
+    <td class="left"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">colkey:String</div>
+			<div class="column-value">colval:String</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
     <td class="middle">...</td>
-    <td class="right"><div class="column ">
-	<div class="column-name">colkey:String</div>
-	<div class="column-value">colval:String</div>
+    <td class="right"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">colkey:String</div>
+			<div class="column-value">colval:String</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
   </tr>
 </table>
@@ -547,24 +606,6 @@ div.no-ttl {
 	<legend class="keyspace"><button class="hide minus"></button>Keyspace<span class="ksname">&lt;TestKeyspace2&gt;</span></legend>
 	<div class="keyspace content">
 		<fieldset class="columnfamily">
-  <legend class="columnfamily"><button class="hide minus"></button>ColumnFamily<span class="cfname">&lt;TtlExample&gt;</span></legend>
-  	<div class="columnfamily content">
-		<table class="row">
-			<tr id="TtlExample">
-				<th class="rowkey">String</th>
-				<td class="columns"><div class="column ">
-	<div class="column-name">'colkey'</div>
-	<div class="column-value">colval:String</div>
-</div>
-<div class="ttl" title="1d"></div>
-</td>
-			</tr>
-		</table>
-	</div>
-</fieldset>
-
-
-<fieldset class="columnfamily">
   <legend class="columnfamily"><button class="hide minus"></button>ColumnFamily<span class="cfname">&lt;CF1&gt;</span></legend>
   	<div class="columnfamily content">
 		<table class="row">
@@ -572,18 +613,26 @@ div.no-ttl {
 				<th class="rowkey">Long</th>
 				<td class="columns"><table class="repeated">
   <tr>
-    <td class="left"><div class="column ">
-	<div class="column-name">colkey:UUID</div>
-	<div class="column-value">colval:Bytes</div>
+    <td class="left"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">colkey:UUID</div>
+			<div class="column-value">colval:Bytes</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
     <td class="middle">...</td>
-    <td class="right"><div class="column ">
-	<div class="column-name">colkey:UUID</div>
-	<div class="column-value">colval:Bytes</div>
+    <td class="right"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">colkey:UUID</div>
+			<div class="column-value">colval:Bytes</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
   </tr>
 </table>
@@ -602,21 +651,51 @@ div.no-ttl {
 				<th class="rowkey">String</th>
 				<td class="columns"><table class="repeated">
   <tr>
-    <td class="left"><div class="column ">
-	<div class="column-name">colkey:UUID</div>
-	<div class="column-value">colval:String</div>
+    <td class="left"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">colkey:UUID</div>
+			<div class="column-value">colval:String</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
     <td class="middle">...</td>
-    <td class="right"><div class="column ">
-	<div class="column-name">colkey:UUID</div>
-	<div class="column-value">colval:String</div>
+    <td class="right"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">colkey:UUID</div>
+			<div class="column-value">colval:String</div>
+		</div>
+		<div class="no-ttl" title="${ttl}"></div>
+	</div>
 </div>
-<div class="no-ttl" title="${ttl}"></div>
 </td>
   </tr>
 </table>
+</td>
+			</tr>
+		</table>
+	</div>
+</fieldset>
+
+
+<fieldset class="columnfamily">
+  <legend class="columnfamily"><button class="hide minus"></button>ColumnFamily<span class="cfname">&lt;TtlExample&gt;</span></legend>
+  	<div class="columnfamily content">
+		<table class="row">
+			<tr id="TtlExample">
+				<th class="rowkey">String</th>
+				<td class="columns"><div class="column-outer">
+	<div class="column ">
+		<div>
+			<div class="column-name">'colkey'</div>
+			<div class="column-value">colval:String</div>
+		</div>
+		<div class="ttl" title="1d"></div>
+	</div>
+</div>
 </td>
 			</tr>
 		</table>
