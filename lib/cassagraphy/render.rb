@@ -100,7 +100,9 @@ module Render
       params = {}
       params['name'] = cluster.name
       params['schema'] = ""
-      cluster.keyspaces().each_pair do |name,keyspace|
+      cluster_keyspaces = cluster.keyspaces.sort_by { |k,v| k }
+      cluster_keyspaces.each do |n|
+      	keyspace = cluster.keyspaces[n[0]]
         params['schema'] += renderKeyspace(keyspace)
       end
       return @templates['cluster'].render(params)
@@ -109,8 +111,10 @@ module Render
       params = {}
       params['title'] = "Cassandra Data Model"
       result = ""
-      model.clusters.each_pair do |name,cluster|
-        result += renderCluster(cluster)
+      cluster_names = model.clusters.sort_by { |k,v| k }
+      clusters = model.clusters
+      cluster_names.each do |n|
+        result += renderCluster(clusters[n[0]])
       end
       params['body'] = result
       params['style'] = File.read('templates/style.css')
