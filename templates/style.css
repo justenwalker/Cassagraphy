@@ -174,7 +174,6 @@ div.supercolumn.optional,div.column.optional {
 /* Columns and Super Columns */
 div.supercolumn,div.column {
 	text-align: center;
-	float: left;
 	border-width: 1px;
 	border-radius: 2px;
 	-moz-border-radius: 5px;
@@ -182,9 +181,6 @@ div.supercolumn,div.column {
 	border-style: solid;
 	background-color: #D8ECED;
 	padding: 0.1em;
-}
-div.column-outer {
-	float:left;
 }
 
 div.supercolumn-key,div.column-name {
@@ -194,6 +190,11 @@ div.supercolumn-key,div.column-name {
 	border-style: solid;
 	margin: 0.1em;
 }
+
+div.column-outer {
+	margin: 0.1em;
+}
+
 
 div.supercolumn {
 	background-color: #A2C7D7;
@@ -247,10 +248,9 @@ div.ttl {
 	float: right;
 	position: relative;
 	opacity: 0.5;
-	top: -8px;
-	left: -24px;
-	margin-right: -32px;
-	margin-bottom: -8px;
+	top: -48px;
+	margin-right: -16px;
+	margin-bottom: -48px;
 	padding-top: 10px;
 	text-align: center;
 	width: 32px;
